@@ -1,0 +1,64 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= f.label :EmployeeID %><br>
+      <%= f.number_field :EmployeeID %>
+    </div>
+    <div class="field">
+      <%= f.label :CustomerID %><br>
+      <%= f.collection_select :CustomerID, Customer.all, :CustomerID, :ContactName%>
+    </div>
+  <div class="field">
+    <%= f.label :OrderDate %><br>
+    <%= date_select :order, :OrderDate, order: [:day, :month, :year], date_separator: "/"%>
+  </div>
+  <div class="field">
+    <%= f.label :RequiredDate %><br>
+    <%= date_select :order, :RequiredDate , order: [:day, :month, :year], date_separator: "/"%>
+  </div>
+  <div class="field">
+    <%= f.label :ShippedDate %><br>
+    <%= date_select :order, :ShippedDate , order: [:day, :month, :year], date_separator: "/"%>
+  </div>
+    <div class="field">
+      <%= f.label :ShipVia %><br>
+      <%= f.number_field :ShipVia %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipName %><br>
+      <%= f.text_field :ShipName %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipAddress%><br>
+      <%= f.text_field :ShipAddress %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipCity%><br>
+      <%= f.text_field :ShipCity %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipRegion %><br>
+      <%= f.text_field :ShipRegion %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipPostalCode %><br>
+      <%= f.text_field :ShipPostalCode %>
+    </div>
+    <div class="field">
+      <%= f.label :ShipCountry %><br>
+      <%= f.text_field :ShipCountry %>
+    </div>
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

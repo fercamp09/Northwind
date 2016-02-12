@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Productname:</strong>
+  <%= @product.ProductName %>
+</p>
+
+<p>
+  <strong>Quantityperunit:</strong>
+  <%= @product.QuantityPerUnit %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @product.UnitPrice %>
+</p>
+
+<p>
+  <strong>Unitsinstock:</strong>
+  <%= @product.UnitsInStock %>
+</p>
+
+<p>
+  <strong>Unitsonorder:</strong>
+  <%= @product.UnitsOnOrder %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

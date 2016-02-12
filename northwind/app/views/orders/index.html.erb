@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover table-striped">
+  <caption><h1>Ordenes</h1></caption>
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.customer.ContactName , controller: "order_details", action: "index",  id: order.OrderID%></td>
+        <td><%= order.OrderDate %></td>
+        <td><%= order.RequiredDate %></td>
+        <td><%= order.ShippedDate %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<p><%= paginate @orders %></p>
+<br>
+

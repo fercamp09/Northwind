@@ -1,0 +1,28 @@
+<table class="table table-hover table-striped">
+  <caption><h2>Detalles de ordenes</h2></caption>
+  <thead>
+  <tr>
+    <th>Product Name</th>
+    <th>Unit Price</th>
+    <th>Quantity</th>
+    <th>Discount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @order_details.each do |order_detail|%>
+      <tr>
+        <td><%= order_detail.product.ProductName %></td>
+        <td><%= order_detail.UnitPrice%></td>
+        <td><%= order_detail.Quantity %></td>
+        <td><%= order_detail.Discount %></td>
+        <td><%= link_to 'Edit', edit_order_detail_path(order_detail) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<p><%= paginate @order_details %></p>
+<br>
+<%= link_to 'New Order detail', new_order_detail_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  CustomerID: MyString
+  OrderDate: MyString
+  RequiredDate: MyString
+  ShippedDate: MyString
+
+two:
+  CustomerID: MyString
+  OrderDate: MyString
+  RequiredDate: MyString
+  ShippedDate: MyString
